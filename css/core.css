@@ -26,4 +26,6 @@ iframe {
 	font-size: 17px;
 	position: relative;
 	overflow: hidden;
+	position: fixed;
+	top: 0;
 }
