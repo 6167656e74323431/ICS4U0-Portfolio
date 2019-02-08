@@ -1,5 +1,24 @@
-body {
+* {
 	margin:0;
+}
+div.main {
+	max-width: 1300px;
+	margin: auto;
+	padding: 20px;
+	position: center;
+	background-color: #fafafa;
+}
+h1 {
+	font-family: "Segoe UI", Calibri, Candara, Segoe, Optima, Arial, sans-serif;
+	text-align: left;
+}
+p {
+	font-size: 15px;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 iframe {
 	width: 100%;
