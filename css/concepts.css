@@ -1,0 +1,37 @@
+ul {
+	list-style-type: none;
+	padding-left: 1em;
+	padding-right: 1em;
+	margin-right: 1em;
+}
+li {
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 17px;
+	width: 100%;
+}
+li a:hover, .previewText:hover {
+	color: #cccccc;
+}
+iframe.previewDisplay {
+	position: relative;
+	height: 15em;
+	width: 100%;
+	overflow: hidden;
+	padding: 0.2em;
+	border: 0px none;
+}
+.previewText {
+	text-align: right;
+	float: right;
+	display: inline-block;
+}
+.preview {
+	overflow: hidden;
+	height: 0em;
+	-webkit-transition: height 1s; /* Safari */
+	transition: height 1s;
+}
+.previewText:hover + .preview, .preview:hover {
+	display: block;
+	height: 16em;
+}
