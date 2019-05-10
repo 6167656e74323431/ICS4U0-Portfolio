@@ -1,0 +1,16 @@
+div.account {
+	display: inline-block;
+	margin-right: 1em;
+	margin-left: 1em;
+}
+p.account {
+	text-align: center;
+	color: #333;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	padding: 0;
+	text-indent: 0;
+}
+a.account {
+	text-decoration: none;
+	color: #333;
+}

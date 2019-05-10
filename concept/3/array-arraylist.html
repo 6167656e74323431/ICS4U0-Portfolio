@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arrays and ArrayLists</title>
+	<link rel="stylesheet" type="text/css" href="../../css/core.css">
+	<link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<iframe src="../../navbar.html" frameborder="0"><p>Please use a browser that supports iframes.</p></iframe>
+	<div class="main">
+		<h1>Arrays and ArrayLists</h1>
+		<hr>
+		<div class="pageImage">
+			<img src="../../assets/images/3/Array-ArrayList-Relationship.png">
+			<p class="imageDescription">Table that shows the relationship between<br>values in Arrays/ArrayLists and their indicies</p>
+		</div>
+		<p>Arrays and ArrayLists are extremely powerful data structures that can be used to store large collections of data. The main point of these two data structures it to store multiple variables of the same type, referenced by one central object. Arrays or ArrayLists can be used to replace a large amount of variables. For example you can either have <code>int x1, x2, x3 …;</code> or <code>int[] x = new int[100];</code> The main similarity between arrays and ArrayLists are that they are both 0-indexed, meaning the first element can be referenced with 0. Their main difference is that the size of an array is immutable, but the size of an ArrayList can be changed dynamically. Arrays are almost always faster than ArrayLists.</p>
+		<br><h3>Arrays</h3>
+		<p>Arrays can be declared with any type, primitive and non primitive as in the following code example:</p>
+		<div class="codeBlock"><pre><code>
+int[] x = new int[10]; // Valid
+Integer[] x = new Integer[10] // Also valid
+		</code></pre></div>
+		<p>Arrays have a length public final variable attached to their reference that can be used to get the array’s length, so it does not need to be stored separately. This is different to other programming languages such as C where you have to store the length of the array. Just because arrays have a final variable, that does not mean that they are instances of a class (there’s a reason the Arrays class exists after all).</p>
+		<p>Arrays can be more complex than just one list of numbers you can have higher dimensional storage containers. However it is important when looping through the array with a basic for loop to take the length of the current higher array as in the following example:</p>
+		<div class="codeBlock"><pre><code>
+// Assume x is a 3d array ie. int[][][] x;
+for (int i = 0; i < x.length; i++)
+	for (int j = 0; j < x[i].length; j++)
+		for (int k = 0; k < x[i][j].length; k++)
+			/* do something */
+		</code></pre></div>
+		<p>It is imperative that you do not make the following common mistakes:</p>
+		<div class="codeBlock"><pre><code>
+// Assume x is a 3d array ie. int[][][] x;
+for (int i = 0; i < x.length; i++)
+	for (int j = 0; j < x[0].length; j++)
+		for (int k = 0; k < x[0][0].length; k++)
+			/* do something */
+		</code></pre></div>
+		<p>This is a mistake because Java supports ragged arrays, meaning arrays of different lengths, and thus you cannot be certain that the array is a perfect shape.</p>
+		<br><h3>ArrayLists</h3>
+		<p>ArrayLists are extremely similar to arrays, however their size is dynamic right from the start. ArrayLists can only be declared with objects, not primitives meaning you cannot have an int ArrayList but you can have an Integer ArrayList. ArrayLists can be declared as follows:</p>
+		<div class="codeBlock"><pre><code>
+ArrayList&lt;String&gt; words = new ArrayList&lt;String&gt;();
+// or
+ArrayList&lt;String&gt; words = new ArrayList&lt;String&gt;(100);
+		</code></pre></div>
+		<p>In the first declaration words is not declared with a starting capacity, but in the second one the words is initialized to have a capacity of 100. If no capacity is specified, the capacity is 10. The capacity is not too relevant as if you run out of capacity (aka the ArrayList is filled) as the ArrayList will then double its capacity.</p>
+		<p>ArrayLists have a large amount of instance methods. Here is a table showing the most useful ArrayList methods and what they do (for the purposes of this table <code>E</code> represents the type the ArrayList was declared with):</p>
+		<center><table>
+			<tr>
+				<th>Method</th>
+				<th>Summary</th>
+			</tr>
+			<tr>
+				<td><code>.add(E x)</code></td>
+				<td>Appends x to the ArrayList.</td>
+			</tr>
+			<tr>
+				<td><code>.add(int i, E x)</code></td>
+				<td>Inserts x into the ArrayList at index i.</td>
+			</tr>
+			<tr>
+				<td><code>.get(int i)</code></td>
+				<td>Returns the value of the item stored at index i.</td>
+			</tr>
+			<tr>
+				<td><code>.remove(int i)</code></td>
+				<td>Removes, and returns the item at index i. All other items are shifted if necessary.</td>
+			</tr>
+			<tr>
+				<td><code>.set(int i, E x)</code></td>
+				<td>Changes the value at index i to x.</td>
+			</tr>
+			<tr>
+				<td><code>.size()</code></td>
+				<td>Returns the current size of the ArrayList (Number of spaces filled, NOT capacity).</td>
+			</tr>
+		</table></center>
+		<br><h3>Example</h3>
+		<table class="files">
+			<tr><th>Example Files</th></tr>
+			<tr><td><a href="../../assets/code/3/CountingCards.java">CountingCards.java</a></td></tr>
+			<tr><td><a href="../../assets/code/3/input.in">input.in</a></td></tr>
+		</table>
+		<p>One very useful Array and ArrayList problem we had during the course was the counting cards problem. In this problem we had to validate that specific hand was valid for a card game. You can see example usage of an ArrayList in the main program of the section, and example usage and manipulation of a 2D array is used to validate that someone doesn’t have more than 1 of the same cards.</p>
+	</div>
+</body>
+</html>

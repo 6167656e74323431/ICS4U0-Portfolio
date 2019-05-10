@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Intro To OOP</title>
+	<link rel="stylesheet" type="text/css" href="../../css/core.css">
+	<link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<iframe src="../../navbar.html" frameborder="0"><p>Please use a browser that supports iframes.</p></iframe>
+	<div class="main">
+		<h1>Introduction To Object-Oriented Programming</h1>
+		<hr>
+		<div class="pageImage">
+			<img src="../../assets/images/2/Inheritance.svg">
+			<p class="imageDescription">Class UML for the 3 classes and 1 interface defined<br> in the Inheritence section of this tutorial.</p>
+		</div>
+		<p>As an object oriented language, Java relies on the principle of objects. Objects are simply just data, and a collection of methods that manipulate that data, so for example the Animal class can have a .rest() method. The two most important principle of object orientation are encapsulation, and inheritance.</p>
+		<br><h3>Encapsulation</h3>
+		<p>At its core encapsulation is the hiding of implementation details from of a class and its clients. Client classes should only interact with a class through well documented methods. To accomplish this task java has access modifiers that allow the writer of the class to set the access level of all fields, and methods of a class. Java has 4 access modifiers (in order from most to least private): private, protected, default and public. public and private are the most commonly used, public means everyone has access to it, and private means only classes of the same type can access the member. Consider  the following class:</p>
+		<div class="codeBlock"><pre><code>
+public class X {
+	private int x;
+
+	public X(int x) {
+		this.x = x;
+	}
+
+	public int sub(X other) {
+		return x - other.x;
+	}
+}
+		</code></pre></div>
+		<p>
+		In the X class x is private, meaning that client classes cannot access the variable directly. x can however  be set at the time of instantiation using the constructor. This code also contains a public function sub that returns the result of the subtraction between the current class’s x and other’s x value. Notice how the sub function access x directly, this is because they are of the same class, and thus the private can be accessed.
+		</p>
+		<br><h3>Inheritance</h3>
+		<p>Inheritance is the second major part of an object oriented language. Inheritance has two different purposes in Java depending on whether extends or implements is used. Consider the following interface and 3 constructors.</p>
+		<div class="codeBlock"><pre><code>
+public class A {
+	private int x;
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+}
+		</code></pre></div><br>
+		<div class="codeBlock"><pre><code>
+public class B extends A {
+}
+		</code></pre></div><br>
+		<div class="codeBlock"><pre><code>
+public interface C {
+	public void setNum(int val);
+	public int getNum();
+}
+		</code></pre></div><br>
+		<div class="codeBlock"><pre><code>
+public class D implements C {
+	private int x;
+
+	public void setNum(int val) {
+		x = val;
+	}
+
+	public int getNum() {
+		return x;
+	}
+}
+		</code></pre></div><br>
+		<p>The first two classes show inheritance using the extends keyword, the extends keyword allows code to be shared between classes, in the example above the B class implicitly has getX() and setX() methods since it extends the A class which defines those methods.</p>
+		<p>The interface and the class following it show inheritance using implements. Interfaces just define a set of methods that all classes that implement them have to implement in source code. This is used so that you can declare a variable of type C and not know which subclass it is, but you can guarantee that it has the methods defined in the C interface.</p>
+		<br><h3>Example</h3>
+		<table class="files">
+			<tr><th>Example Files</th></tr>
+			<tr><td><a href="../../assets/code/2/BlogSite.java">BlogSite.java</a></td></tr>
+			<tr><td><a href="../../assets/code/2/Main.java">Main.java</a></td></tr>
+			<tr><td><a href="../../assets/code/2/Website.java">Website.java</a></td></tr>
+		</table>
+		<p>One exercise during this course was to create a class, and then a subclass that extends it and adds functionality. My partner and I created a website class that manages the html of a website, and a BlogSite that extends the website and adds support for multiple pages and comments.</p>
+		<p>This project taught my partner and I about the gritty details of object oriented programming in Java. We learned about the specifics of details. There are two large faults in this program the first being that we didn’t use ArrayLists for the BlogSite which made implementation needlessly hard, and the constructor for the website class are not done optimally. We created a chain of calling simpler constructors by more complex constructors when it should have been the other way around.</p>
+	</div>
+</body>
+</html>

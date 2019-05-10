@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Merge Sort</title>
+	<link rel="stylesheet" type="text/css" href="../../css/core.css">
+	<link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<div class="previewMain">
+		<h1>Merge Sort</h1>
+		<hr>
+		<div class="pageImage">
+			<img src="../../assets/images/5/Merge Sort.png" width=300px>
+			<p class="imageDescription">Recursion diagram of an array being<br>sorted via merge sort.</p>
+		</div>
+		<p>My partner and I were tasked to do a presentation on merge sort for the AP ICS course. Merge sort is one of the more complex sorting algorithms, but that complexity comes with the advantage that merge sort is one of the fastest sorting algorithms. Many merge sort implementations (including ours) are recursive, although it is possible to do merge sort iteratively. In general most merge sort algorithms come in two major sections, splitting, and merging.</p>
+		<br><h3>Splitting</h3>
+		<p>The first part of the algorithms is splitting. A copy of the bottom half of the array is created, and a copy of the top half of the array is created. Then merge sort is called on each of those arrays. This continues until the length of the array is 1, which is the base case. Consider the following code for splitting the array:</p>
+		<div class="codeBlock"><pre><code>
+int[] lowerTarget = Arrays.copyOfRange(target, 0, target.length / 2);
+int[] upperTarget = Arrays.copyOfRange(target, target.length / 2, target.length);
+lowerTarget = sortInt(lowerTarget);
+upperTarget = sortInt(upperTarget);
+		</code></pre></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Algorithms</title>
+	<link rel="stylesheet" type="text/css" href="../../css/core.css">
+	<link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<iframe src="../../navbar.html" frameborder="0"><p>Please use a browser that supports iframes.</p></iframe>
+	<div class="main">
+		<h1>Search Algorithms</h1>
+		<hr>
+		<div class="pageImage">
+			<img src="../../assets/images/4/Search Comparison.png" width="560px">
+			<p class="imageDescription">Comparision of the efficiancy of Binary Search (top), versus the efficiancy of sequential<br>search (bottom). The cell that is being checked for the value is being marked with 'X'.</p>
+		</div>
+		<p>For the purposes of ICS AP two searching algorithms need to be learned. Sequential search, and Binary Search. Both these algorithms are used to find the index of a specified value in an array. They find the needle in the haystack, if you will.</p>
+		<p>Each of those two sorting algorithms have their own drawbacks, and should be used in specific situations. There is no truly optimal search algorithm for every situation. Both of these searching algorithms have their advantages and their drawbacks.</p>
+		<p>For the purposes of this tutorial, if a loop fails to find the element in the array, the value returned will be <code>-1</code>. This value is chosen as <code>-1</code> can never be an index in Java, yet it can still be stored within the int data type.</p>
+		<br><h3>Sequential Search</h3>
+		<p>Sequential search is perhaps one of the most simple and straight forwards searching algorithms. The general premise for this algorithm is very simple, you just go check each index of the (in this case) Array until you find the result. If you find the result, then you just return the index value where that item lies. If the loop terminates you return a value that cannot be an index.</p>
+		<p>Sequential search is generally considered a pretty slow searching algorithm as it has to run through each element in the array individually. Sequential search is generally considered a O(N) algorithm where N is the length of the array since that’s its worst case performance.</p>
+		<p>The one upside sequential search has is that it works on an unsorted array. Other searching algorithms do not work on an unsorted array.</p>
+		<p>The most common implementation of sequential search usually looks something like this:</p>
+		<div class="codeBlock"><pre><code>
+public static int sequentialSearchIntArray(int needle, int[] haystack) {
+	for (int i = 0; i < haystack.length; i++)
+		if (haystack[i] == needle)
+			return i;
+	
+	return -1;
+}
+		</code></pre></div>
+		<br><h3>Binary Search</h3>
+		<p>Binary search is a very efficient algorithm, however it has a large Achilles heel. It’s limitations mean that it cannot often be used, but when it can it outperforms sequential search in nearly every case, the image above demonstrates this. The most simple way to explain binary search is that the center of the array is checked, if that value is greater than the target value, then the center between the beginning and the center of the array is checked, otherwise it checks the other way, continually dividing the array into halves. If the checked value is found, return that index, if the lower bound goes above the higher bound, then return a value that cannot be an index.</p>
+		<p>In the above image binary search only takes 4 iterations, while sequential search takes 8. This is because binary search runs in O(log(N)) time. Because of this it can search huge arrays in a very small amount of time.</p>
+		<p>The one major issue that binary search has is that it only works on a sorted array. This is because the direction that the algorithm chooses to search next is based upon the checked value’s relationship to the target value.</p>
+		<p>A general non-recursive implementation of binary search generally looks as follows:</p>
+		<div class="codeBlock"><pre><code>
+public static int binarySearchIntArray(int needle, int[] haystack) {
+	int low = 0, high = haystack.length - 1;
+	
+	while (low <= high) {
+		int midpoint = (low + high) / 2;
+		
+		if (haystack[midpoint] == needle)
+			return midpoint;
+		
+		if (haystack[midpoint] < needle)
+			low = midpoint + 1;
+		else
+			high = midpoint - 1;
+	}
+	
+	return -1;
+}
+		</code></pre></div>
+	</div>
+</body>
+</html>

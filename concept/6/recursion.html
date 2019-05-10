@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recursion</title>
+	<link rel="stylesheet" type="text/css" href="../../css/core.css">
+	<link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<iframe src="../../navbar.html" frameborder="0"><p>Please use a browser that supports iframes.</p></iframe>
+	<div class="main">
+		<h1>Recursion</h1>
+		<hr>
+		<div class="pageImage">
+			<img src="../../assets/images/6/Skype.png" width=450px>
+			<p class="imageDescription">Online chatting services such as skype over the ability to "share<br>your screen". When the skype window is within frame<br>an infinite efect appears.</p>
+		</div>
+		<p>Recursion, when used correctly is a key tool for any programmer to use as it allows larger problems to be broken up into smaller parts. The most core component of a recursive solution is simply a method that calls itself. However there must be a base, or known case to end the recursion. Otherwise you will end up with an infinite loop, which leads to a StackOverflowError.</p>
+		<br><h3>A Real Life Example</h3>
+		<p><b>Note:</b> This example is taken is my answer for a question on the recursion reading assignment:</p>
+		<p>Let’s say I just joined a line in a hotdog stand, and I want to know how many people are in this line. To figure this out I can ask the person in front of me how many people are in front of him. This process then repeats until it reaches the second person who sees that there is only one person in front of him. This count can then propagate back to me.</p>
+		<br><h3>Simple Code Example</h3>
+		<p>In the searching tutorial the provided implementation for sequential sort was done iteratively, however it is possible to implement it recursively. Consider the following method:</p>
+		<div class="codeBlock"><pre><code>
+public static int sequentialSearchIntArray(int needle, int[] haystack) {
+	if (haystack[0] == needle)
+		return 0;
+	if (haystack.length == 1)
+		return Integer.MIN_VALUE;
+	return 1 + sequentialSearchIntArray(needle, Arrays.copyOfRange(haystack, 1, haystack.length));
+}
+		</code></pre></div>
+		<p>In this method the first element of the array is checked, if it is the target value then 0 is returned, otherwise it creates a copy of the rest of the array and calls the search function on that. When the array is too small, and the target is not found, the smallest integer is returned. Since there are more negative numbers than positive numbers that fit into an int. The result can never be a valid index even if the array is at a theoretical maximum length.</p>
+		<br><h3>Example</h3>
+		<table class="files">
+			<tr><th>Example Files</th></tr>
+			<tr><td><a href="../../assets/code/6/EscapeMaze.java">EscapeMaze.java</a></td></tr>
+		</table>
+		<p>One of the programs that we had to implement was a recursive algorithm that needed to check if a maze had a valid path. The maze would be predefined, and the algorithms had to find a way out. Entrances would be on the top or left, exits would be at the bottom or right.</p>
+		<p>This program heavily assisting in training my way of thinking on how to solve java problems. For example I used Java exemptions to my advantage, instead of having to check if where i was going is valid, I would just go, and throw an exception if it is invalid.</p>
+	</div>
+</body>
+</html>

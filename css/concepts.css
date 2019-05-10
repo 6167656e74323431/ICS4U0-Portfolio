@@ -1,3 +1,7 @@
+a {
+	color: black;
+	text-decoration: none;
+}
 ul {
 	list-style-type: none;
 	padding-left: 1em;
@@ -19,13 +23,16 @@ iframe.previewDisplay {
 	overflow: hidden;
 	padding: 0.2em;
 	border: 0px none;
+	pointer-events: none;
 }
 .previewText {
 	text-align: right;
 	float: right;
 	display: inline-block;
+	cursor: context-menu;
 }
 .preview {
+	cursor: pointer;
 	overflow: hidden;
 	height: 0em;
 	-webkit-transition: height 1s; /* Safari */
@@ -34,4 +41,5 @@ iframe.previewDisplay {
 .previewText:hover + .preview, .preview:hover {
 	display: block;
 	height: 16em;
+	cursor: context-menu;
 }
